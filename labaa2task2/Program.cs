@@ -11,6 +11,12 @@ namespace labaa2task2
         private int hour;
         private int minute;
         private int second;
+        public MyTime(int h, int m, int s)
+        {
+            this.hour = h;
+            this.minute = m;
+            this.second = s;
+        }
     }
     internal class Program
     {
