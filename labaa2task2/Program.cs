@@ -17,6 +17,10 @@ namespace labaa2task2
             this.minute = m;
             this.second = s;
         }
+        public override string ToString()
+        {
+            return $"Time:{hour}:{minute:D2}:{second:D2}";
+        }
     }
     internal class Program
     {
