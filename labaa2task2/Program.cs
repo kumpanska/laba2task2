@@ -97,6 +97,61 @@ namespace labaa2task2
             int totalSeconds2 = TimeSinceMidnight(mt2);
             return totalSeconds1 - totalSeconds2;
         }
+        public string WhatLesson()
+        {
+            if (Hour < 8)
+            {
+                return "пари ще не почалися";
+            }
+            else if (Hour == 8 && Minute >= 0 && Second >= 0)
+            {
+                return "1-а пара";
+            }
+            else if (Hour == 9 && Minute >= 20 && Minute < 40 && Second >= 0)
+            {
+                return "перерва між 1-ю та 2-ю парами";
+            }
+            else if (Hour == 9 && Minute >= 40 && Second >= 0)
+            {
+                return "2-а пара";
+            }
+            else if (Hour == 11 && Minute >= 0 && Minute < 20 && Second >= 0)
+            {
+                return "перерва між 2-ю та 3-ю парами";
+            }
+            else if (Hour == 11 && Minute >= 20 && Second >= 0)
+            {
+                return "3-я пара";
+            }
+            else if (Hour == 12 && Minute >= 40 && Second >= 0)
+            {
+                return "перерва між 3-ю та 4-ю парами";
+            }
+            else if (Hour == 13 && Minute >= 0 && Second >= 0)
+            {
+                return " 4-а пара";
+            }
+            else if (Hour == 14 && Minute >= 20 && Minute < 40 && second >= 0)
+            {
+                return "перерва між 4-ю та 5-ю парами";
+            }
+            else if (Hour >= 14 && Minute >= 40 && Second >= 0 && Hour < 16)
+            {
+                return "5-а пара";
+            }
+            else if (Hour == 16 && Minute >= 0 && Minute < 10 && Second >= 0)
+            {
+                return "перерва між 5-ю та 6-ю парами";
+            }
+            else if (Hour >= 16 && Minute >= 10 || Hour == 17 && Minute < 30 && Second >= 0)
+            {
+                return "6-а пара";
+            }
+            else
+            {
+                return "пари вже скінчилися";
+            }
+        }
     }
     internal class Program
     {
