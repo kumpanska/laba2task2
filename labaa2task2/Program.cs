@@ -154,16 +154,17 @@ namespace labaa2task2
                 return "пари вже скінчилися";
             }
         }
-        public void InputOutput(MyTime t)
+        public void InputOutput()
         {
             while (true)
             {
-                Console.Write("Enter time in H:mm:ss format(numbers separate by spaces): ");
-                Console.WriteLine(this);
+                Console.Write("Enter time in H:mm:ss format(numbers separate by spaces): ");      
                 string[] input = Console.ReadLine().Split(' ');
                 int hour = Convert.ToInt32(input[0]);
                 int minute = Convert.ToInt32(input[1]);
                 int second = Convert.ToInt32(input[2]);
+                MyTime t = new MyTime(hour,minute,second);
+                Console.WriteLine(t.ToString());
                 Console.WriteLine("Choose operation(1-8) or exit the program(0):");
                 int num = Convert.ToInt32(Console.ReadLine());
                 if (num == 0)
@@ -218,7 +219,7 @@ namespace labaa2task2
         static void Main(string[] args)
         {
             MyTime t = new MyTime(0,0,0);
-            t.InputOutput(t);
+            t.InputOutput();
         }
     }
 }
