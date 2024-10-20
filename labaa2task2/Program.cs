@@ -76,6 +76,11 @@ namespace labaa2task2
             int addSecond = TimeSinceMidnight(t) + 1;
             return TimeSinceMidnight(addSecond);
         }
+        public MyTime AddOneMinute(MyTime t)
+        {
+            int addMinute = TimeSinceMidnight(t) + 60;
+            return TimeSinceMidnight(addMinute);
+        }
     }
     internal class Program
     {
