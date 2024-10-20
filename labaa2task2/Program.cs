@@ -56,6 +56,10 @@ namespace labaa2task2
                 second = value;
             }
         }
+        public int TimeSinceMidnight(MyTime t)
+        {
+            return t.Hour * 3600 + t.Minute * 60 + t.Second;
+        }
     }
     internal class Program
     {
