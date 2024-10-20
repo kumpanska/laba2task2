@@ -60,15 +60,15 @@ namespace labaa2task2
         {
             return t.Hour * 3600 + t.Minute * 60 + t.Second;
         }
-        public MyTime TimeSinceMidnight(int time)
+        public MyTime TimeSinceMidnight(int t)
         {
             int secPerDay = 60 * 60 * 24;
-            time %= secPerDay;
-            if (time < 0)
-                time += secPerDay;
-            int h = time / 3600;
-            int m = (time / 60) % 60;
-            int s = time % 60;
+            t %= secPerDay;
+            if (t < 0)
+                t += secPerDay;
+            int h = t / 3600;
+            int m = (t / 60) % 60;
+            int s = t % 60;
             return new MyTime(h,m,s);
         }
         public MyTime AddOneSecond(MyTime t)
@@ -86,10 +86,10 @@ namespace labaa2task2
             int addHour = TimeSinceMidnight(t) + 3600;
             return TimeSinceMidnight(addHour);
         }
-        public MyTime AddSeconds(MyTime t, int seconds)
+        public MyTime AddSeconds(MyTime t, int s)
         {
-            int addSeconds = TimeSinceMidnight(t) + seconds;
-            return TimeSinceMidnight(seconds);
+            int addSeconds = TimeSinceMidnight(t) + s;
+            return TimeSinceMidnight(s);
         }
         public int Difference(MyTime mt1, MyTime mt2)
         {
