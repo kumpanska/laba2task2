@@ -137,7 +137,7 @@ namespace labaa2task2
             {
                 return "перерва між 4-ю та 5-ю парами";
             }
-            else if (Hour >= 14 && Minute >= 40 && Second >= 0 && Hour < 16)
+            else if (Hour >= 14 && Minute >= 40 && Second >= 0 || Hour < 16)
             {
                 return "5-а пара";
             }
@@ -145,7 +145,7 @@ namespace labaa2task2
             {
                 return "перерва між 5-ю та 6-ю парами";
             }
-            else if (Hour >= 16 && Minute >= 10 || Hour == 17 && Minute < 30 && Second >= 0)
+            else if (Hour == 16 && Minute >= 10 || Hour == 17 && Minute < 30 && Second >= 0)
             {
                 return "6-а пара";
             }
