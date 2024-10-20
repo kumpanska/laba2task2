@@ -91,7 +91,12 @@ namespace labaa2task2
             int addSeconds = TimeSinceMidnight(t) + seconds;
             return TimeSinceMidnight(seconds);
         }
-       
+        public int Difference(MyTime mt1, MyTime mt2)
+        {
+            int totalSeconds1 = TimeSinceMidnight(mt1);
+            int totalSeconds2 = TimeSinceMidnight(mt2);
+            return totalSeconds1 - totalSeconds2;
+        }
     }
     internal class Program
     {
