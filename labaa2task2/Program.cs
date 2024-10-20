@@ -91,7 +91,7 @@ namespace labaa2task2
         public MyTime AddSeconds(MyTime t, int s)
         {
             int addSeconds = TimeSinceMidnight(t) + s;
-            return TimeSinceMidnight(s);
+            return TimeSinceMidnight(addSeconds);
         }
         public int Difference(MyTime mt1, MyTime mt2)
         {
