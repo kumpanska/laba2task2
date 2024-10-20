@@ -60,16 +60,21 @@ namespace labaa2task2
         {
             return t.Hour * 3600 + t.Minute * 60 + t.Second;
         }
-        public MyTime FromSecSinceMidnight(int t)
+        public MyTime TimeSinceMidnight(int time)
         {
             int secPerDay = 60 * 60 * 24;
-            t %= secPerDay;
-            if (t < 0)
-                t += secPerDay;
-            int h = t / 3600;
-            int m = (t / 60) % 60;
-            int s = t % 60;
+            time %= secPerDay;
+            if (time < 0)
+                time += secPerDay;
+            int h = time / 3600;
+            int m = (time / 60) % 60;
+            int s = time % 60;
             return new MyTime(h,m,s);
+        }
+        public MyTime AddOneSecond(MyTime t)
+        {
+            int addSecond = TimeSinceMidnight(t) + 1;
+            return TimeSinceMidnight(addSecond);
         }
     }
     internal class Program
