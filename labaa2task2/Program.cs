@@ -217,6 +217,8 @@ namespace labaa2task2
     {
         static void Main(string[] args)
         {
+            MyTime t = new MyTime(0,0,0);
+            t.InputOutput(t);
         }
     }
 }
