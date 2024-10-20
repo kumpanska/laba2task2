@@ -103,55 +103,55 @@ namespace labaa2task2
         {
             if (Hour < 8)
             {
-                return "пари ще не почалися";
+                return "Lessons haven't started yet";
             }
             else if (Hour == 8 && Minute >= 0 && Second >= 0)
             {
-                return "1-а пара";
+                return "First lesson";
             }
             else if (Hour == 9 && Minute >= 20 && Minute < 40 && Second >= 0)
             {
-                return "перерва між 1-ю та 2-ю парами";
+                return "Break between first and second lessons";
             }
             else if (Hour == 9 && Minute >= 40 && Second >= 0)
             {
-                return "2-а пара";
+                return "Second lesson";
             }
             else if (Hour == 11 && Minute >= 0 && Minute < 20 && Second >= 0)
             {
-                return "перерва між 2-ю та 3-ю парами";
+                return "Break between second and third lessons";
             }
             else if (Hour == 11 && Minute >= 20 && Second >= 0)
             {
-                return "3-я пара";
+                return "Third lesson";
             }
             else if (Hour == 12 && Minute >= 40 && Second >= 0)
             {
-                return "перерва між 3-ю та 4-ю парами";
+                return "Break between third and fourth lessons";
             }
             else if (Hour == 13 && Minute >= 0 && Second >= 0)
             {
-                return " 4-а пара";
+                return "Fourth lesson";
             }
             else if (Hour == 14 && Minute >= 20 && Minute < 40 && Second >= 0)
             {
-                return "перерва між 4-ю та 5-ю парами";
+                return "Break between fourth and fifth lessons";
             }
             else if (Hour >= 14 && Minute >= 40 && Second >= 0 || Hour < 16)
             {
-                return "5-а пара";
+                return "Fifth lesson";
             }
             else if (Hour == 16 && Minute >= 0 && Minute < 10 && Second >= 0)
             {
-                return "перерва між 5-ю та 6-ю парами";
+                return "Break between fifth and sixth lessons";
             }
             else if (Hour == 16 && Minute >= 10 || Hour == 17 && Minute < 30 && Second >= 0)
             {
-                return "6-а пара";
+                return "Sixth lesson";
             }
             else
             {
-                return "пари вже скінчилися";
+                return "Lessons are already over";
             }
         }
         public void InputOutput()
