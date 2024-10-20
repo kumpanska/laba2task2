@@ -49,7 +49,9 @@ namespace labaa2task2
         public int Second
         {
             get { return second; }
-            set { if (value < 0 || value > 59)
+            set
+            {
+                if (value < 0 || value > 59)
                 {
                     throw new ArgumentException("Second should be between 0 and 59");
                 }
@@ -69,7 +71,7 @@ namespace labaa2task2
             int h = t / 3600;
             int m = (t / 60) % 60;
             int s = t % 60;
-            return new MyTime(h,m,s);
+            return new MyTime(h, m, s);
         }
         public MyTime AddOneSecond(MyTime t)
         {
@@ -131,7 +133,7 @@ namespace labaa2task2
             {
                 return " 4-а пара";
             }
-            else if (Hour == 14 && Minute >= 20 && Minute < 40 && second >= 0)
+            else if (Hour == 14 && Minute >= 20 && Minute < 40 && Second >= 0)
             {
                 return "перерва між 4-ю та 5-ю парами";
             }
@@ -151,6 +153,64 @@ namespace labaa2task2
             {
                 return "пари вже скінчилися";
             }
+        }
+        public void InputOutput(MyTime t)
+        {
+            while (true)
+            {
+                Console.Write("Enter time in H:mm:ss format(numbers separate by spaces): ");
+                Console.WriteLine(this);
+                string[] input = Console.ReadLine().Split(' ');
+                int hour = Convert.ToInt32(input[0]);
+                int minute = Convert.ToInt32(input[1]);
+                int second = Convert.ToInt32(input[2]);
+                Console.WriteLine("Choose operation(1-8) or exit the program(0):");
+                int num = Convert.ToInt32(Console.ReadLine());
+                if (num == 0)
+                {
+                    Console.WriteLine("Exit the program");
+                    break;
+                }
+                switch (num)
+                {
+                    case 1:
+                        Console.WriteLine($"Time in seconds:{t.TimeSinceMidnight(t)} ");
+                        break;
+                    case 2:
+                        Console.WriteLine($"TimeSinceMidnight:{t.TimeSinceMidnight(second)}");
+                        break;
+                    case 3:
+                        Console.WriteLine($"Time after adding one second:{t.AddOneSecond(t)}");
+                        break;
+                    case 4:
+                        Console.WriteLine($"Time after adding one minute:{t.AddOneMinute(t)}");
+                        break;
+                    case 5:
+                        Console.WriteLine($"Time after adding one hour:{t.AddOneHour(t)}");
+                        break;
+                    case 6:
+                        Console.Write("Enter number of seconds: ");
+                        int seconds = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Time after adding {seconds} seconds:{t.AddSeconds(t, seconds)} ");
+                        break;
+                    case 7:
+                        Console.Write("Enter second time in H:mm:ss format(numbers separate by spaces): ");
+                        string[] input2 = Console.ReadLine().Split(' ');
+                        int hour2 = Convert.ToInt32(input2[0]);
+                        int minute2 = Convert.ToInt32(input2[1]);
+                        int second2 = Convert.ToInt32(input2[2]);
+                        MyTime t2 = new MyTime(hour2, minute2, second2);
+                        Console.WriteLine($"Time difference:{t.Difference(t, t2)} second");
+                        break;
+                    case 8:
+                        Console.WriteLine($"Lesson:{t.WhatLesson()}");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please select again.");
+                        break;
+                }
+            }
+
         }
     }
     internal class Program
