@@ -170,7 +170,7 @@ namespace labaa2task2
         {
             while (true)
             {
-                Console.Write("Enter time in H:mm:ss format(numbers separate by spaces): ");      
+                Console.Write("Enter time (numbers separate by spaces): ");      
                 string[] input = Console.ReadLine().Split(' ');
                 int hour = Convert.ToInt32(input[0]);
                 int minute = Convert.ToInt32(input[1]);
@@ -211,7 +211,7 @@ namespace labaa2task2
                         Console.WriteLine($"Time after adding {seconds} seconds:{t.AddSeconds(t, seconds)} ");
                         break;
                     case 7:
-                        Console.Write("Enter second time in H:mm:ss format(numbers separate by spaces): ");
+                        Console.Write("Enter second time (numbers separate by spaces): ");
                         string[] input2 = Console.ReadLine().Split(' ');
                         int hour2 = Convert.ToInt32(input2[0]);
                         int minute2 = Convert.ToInt32(input2[1]);
