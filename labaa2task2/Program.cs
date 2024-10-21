@@ -224,6 +224,18 @@ namespace labaa2task2
                         int hour2 = Convert.ToInt32(input2[0]);
                         int minute2 = Convert.ToInt32(input2[1]);
                         int second2 = Convert.ToInt32(input2[2]);
+                        if (hour2 < 0 || hour2 > 23)
+                        {
+                            throw new ArgumentException("Hour should be between 0 and 23");
+                        }
+                        if (minute2 < 0 || minute2 > 59)
+                        {
+                            throw new ArgumentException("Minute should be between 0 and 59");
+                        }
+                        if (second2 < 0 || second2 > 59)
+                        {
+                            throw new ArgumentException("Second should be between 0 and 59");
+                        }
                         MyTime t2 = new MyTime(hour2, minute2, second2);
                         Console.WriteLine($"Time difference:{t.Difference(t, t2)} second");
                         break;
