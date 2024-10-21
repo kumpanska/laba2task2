@@ -175,9 +175,17 @@ namespace labaa2task2
                 int hour = Convert.ToInt32(input[0]);
                 int minute = Convert.ToInt32(input[1]);
                 int second = Convert.ToInt32(input[2]);
-                if (hour < 0 || minute < 0 || second < 0)
+                if (hour < 0 || hour > 23)
                 {
-                    throw new ArgumentException("Values should be positive or zero");
+                    throw new ArgumentException("Hour should be between 0 and 23");
+                }
+                if (minute < 0 || minute > 59)
+                {
+                    throw new ArgumentException("Minute should be between 0 and 59");
+                }
+                if (second < 0 || second > 59)
+                {
+                    throw new ArgumentException("Second should be between 0 and 59");
                 }
                 MyTime t = new MyTime(hour,minute,second);
                 Console.WriteLine(t.ToString());
