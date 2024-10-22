@@ -133,11 +133,11 @@ namespace labaa2task2
             {
                 return "Break between second and third lessons";
             }
-            else if (Hour == 11 && Minute >= 20 && Second >= 0)
+            else if ((Hour == 11 && Minute >= 20 && Second >= 0) ||(Hour==12 && Minute<=39))
             {
                 return "Third lesson";
             }
-            else if (Hour == 12 && Minute >= 40 && Second >= 0)
+            else if (Hour == 12 && Minute >= 40 && Second >= 0 )
             {
                 return "Break between third and fourth lessons";
             }
