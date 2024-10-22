@@ -178,7 +178,9 @@ namespace labaa2task2
                         Console.WriteLine($"Time in seconds:{t.TimeSinceMidnight(t)} ");
                         break;
                     case 2:
-                        Console.WriteLine($"TimeSinceMidnight:{t.TimeSinceMidnight(second)}");
+                        Console.Write("Enter number of seconds: ");
+                        int s= Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"TimeSinceMidnight:{t.TimeSinceMidnight(s)}");
                         break;
                     case 3:
                         Console.WriteLine($"Time after adding one second:{t.AddOneSecond(t)}");
