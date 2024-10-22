@@ -50,7 +50,7 @@ namespace labaa2task2
         {
             return t.Hour * 3600 + t.Minute * 60 + t.Second;
         }
-        public MyTime TimeSinceMidnight(int t)
+        public static MyTime TimeSinceMidnight(int t)
         {
             int secPerDay = 60 * 60 * 24;
             t %= secPerDay;
@@ -180,7 +180,7 @@ namespace labaa2task2
                     case 2:
                         Console.Write("Enter number of seconds: ");
                         int s= Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine($"TimeSinceMidnight:{t.TimeSinceMidnight(s)}");
+                        Console.WriteLine($"TimeSinceMidnight:{TimeSinceMidnight(s)}");
                         break;
                     case 3:
                         Console.WriteLine($"Time after adding one second:{t.AddOneSecond(t)}");
