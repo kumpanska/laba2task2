@@ -89,64 +89,50 @@ namespace labaa2task2
         }
         public string WhatLesson()
         {
+            List<int[]> lessons = new List<int[]>
+            {
+             new int[]{8,0,9,20,1 },
+             new int[]{9,40,11,0,2 },
+             new int[]{11,20,12,40,3 },
+             new int[]{13,0,14,20,4 },
+             new int[]{14,40,16,0,5 },
+             new int[]{16,10,17,30,6 }
+            };
+            List<int[]> breaks = new List<int[]>
+            {
+             new int[]{9,20,9,40,1 },
+             new int[]{11,0,11,20,2 },
+             new int[]{12,40,13,0,3 },
+             new int[]{14,20,14,40,4 },
+             new int[]{16,0,16,10,5 }
+            };
             if (Hour < 8)
             {
                 return "Lessons haven't started yet";
             }
-            else if (Hour == 8 && Minute >= 0 && Second >= 0)
+            foreach (int[] lesson in lessons)
             {
-                return "First lesson";
+                if ((Hour > lesson[0] || (Hour == lesson[0] && Minute >= lesson[1])) &&
+                    (Hour < lesson[2] || (Hour == lesson[2] && Minute < lesson[3])))
+                {
+                    return $"Lesson: {lesson[4]}";
+                }
             }
-            else if (Hour == 9 && Minute >= 20 && Minute < 40 && Second >= 0)
+            foreach (int[] breakTime in breaks)
             {
-                return "Break between first and second lessons";
+                if ((Hour > breakTime[0] || (Hour == breakTime[0] && Minute >= breakTime[1])) &&
+                    (Hour < breakTime[2] || (Hour == breakTime[2] && Minute < breakTime[3])))
+                {
+                    return $"Break: {breakTime[4]}";
+                }
             }
-            else if (Hour == 9 && Minute >= 40 && Second >= 0)
-            {
-                return "Second lesson";
-            }
-            else if (Hour == 11 && Minute >= 0 && Minute < 20 && Second >= 0)
-            {
-                return "Break between second and third lessons";
-            }
-            else if ((Hour == 11 && Minute >= 20 && Second >= 0) ||(Hour==12 && Minute<=39))
-            {
-                return "Third lesson";
-            }
-            else if (Hour == 12 && Minute >= 40 && Second >= 0 )
-            {
-                return "Break between third and fourth lessons";
-            }
-            else if (Hour == 13 && Minute >= 0 && Second >= 0)
-            {
-                return "Fourth lesson";
-            }
-            else if (Hour == 14 && Minute >= 20 && Minute < 40 && Second >= 0)
-            {
-                return "Break between fourth and fifth lessons";
-            }
-            else if (Hour >= 14 && Minute >= 40 && Second >= 0 || Hour < 16)
-            {
-                return "Fifth lesson";
-            }
-            else if (Hour == 16 && Minute >= 0 && Minute < 10 && Second >= 0)
-            {
-                return "Break between fifth and sixth lessons";
-            }
-            else if (Hour == 16 && Minute >= 10 || Hour == 17 && Minute < 30 && Second >= 0)
-            {
-                return "Sixth lesson";
-            }
-            else
-            {
-                return "Lessons are already over";
-            }
+            return "Lessons are already over";
         }
         public void InputOutput()
         {
             while (true)
             {
-                Console.Write("Enter time (numbers separate by spaces): ");      
+                Console.Write("Enter time (numbers separate by spaces): ");
                 string[] input = Console.ReadLine().Split(' ');
                 int hour = Convert.ToInt32(input[0]);
                 int minute = Convert.ToInt32(input[1]);
@@ -163,7 +149,7 @@ namespace labaa2task2
                 {
                     throw new ArgumentException("Second should be between 0 and 59");
                 }
-                MyTime t = new MyTime(hour,minute,second);
+                MyTime t = new MyTime(hour, minute, second);
                 Console.WriteLine(t.ToString());
                 Console.WriteLine("Choose operation(1-8) or exit the program(0):");
                 int num = Convert.ToInt32(Console.ReadLine());
@@ -179,7 +165,7 @@ namespace labaa2task2
                         break;
                     case 2:
                         Console.Write("Enter number of seconds: ");
-                        int s= Convert.ToInt32(Console.ReadLine());
+                        int s = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine($"TimeSinceMidnight:{TimeSinceMidnight(s)}");
                         break;
                     case 3:
@@ -215,7 +201,7 @@ namespace labaa2task2
                             throw new ArgumentException("Second should be between 0 and 59");
                         }
                         MyTime t2 = new MyTime(hour2, minute2, second2);
-                        Console.WriteLine($"Time difference:{t.Difference(t,t2)} second");
+                        Console.WriteLine($"Time difference:{t.Difference(t, t2)} second");
                         break;
                     case 8:
                         Console.WriteLine($"Lesson:{t.WhatLesson()}");
@@ -232,8 +218,9 @@ namespace labaa2task2
     {
         static void Main(string[] args)
         {
-            MyTime t = new MyTime(0,0,0);
+            MyTime t = new MyTime(0, 0, 0);
             t.InputOutput();
+            
         }
     }
 }
