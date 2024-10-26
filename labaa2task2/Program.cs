@@ -46,9 +46,9 @@ namespace labaa2task2
         {
             get { return second; }
         }
-        public int TimeSinceMidnight(MyTime t)
+        public int TimeSinceMidnight()
         {
-            return t.Hour * 3600 + t.Minute * 60 + t.Second;
+            return this.hour * 3600 + this.minute * 60 + this.second;
         }
         public static MyTime TimeSinceMidnight(int t)
         {
@@ -61,30 +61,30 @@ namespace labaa2task2
             int s = t % 60;
             return new MyTime(h, m, s);
         }
-        public MyTime AddOneSecond(MyTime t)
+        public MyTime AddOneSecond()
         {
-            int addSecond = TimeSinceMidnight(t) + 1;
+            int addSecond = TimeSinceMidnight() + 1;
             return TimeSinceMidnight(addSecond);
         }
-        public MyTime AddOneMinute(MyTime t)
+        public MyTime AddOneMinute()
         {
-            int addMinute = TimeSinceMidnight(t) + 60;
+            int addMinute = TimeSinceMidnight() + 60;
             return TimeSinceMidnight(addMinute);
         }
-        public MyTime AddOneHour(MyTime t)
+        public MyTime AddOneHour()
         {
-            int addHour = TimeSinceMidnight(t) + 3600;
+            int addHour = TimeSinceMidnight() + 3600;
             return TimeSinceMidnight(addHour);
         }
-        public MyTime AddSeconds(MyTime t, int s)
+        public MyTime AddSeconds(int s)
         {
-            int addSeconds = TimeSinceMidnight(t) + s;
+            int addSeconds = TimeSinceMidnight() + s;
             return TimeSinceMidnight(addSeconds);
         }
         public int Difference(MyTime mt1, MyTime mt2)
         {
-            int totalSeconds1 = TimeSinceMidnight(mt1);
-            int totalSeconds2 = TimeSinceMidnight(mt2);
+            int totalSeconds1 = mt1.TimeSinceMidnight();
+            int totalSeconds2 = mt2.TimeSinceMidnight();
             return totalSeconds1 - totalSeconds2;
         }
         public string WhatLesson()
@@ -175,7 +175,7 @@ namespace labaa2task2
                 switch (num)
                 {
                     case 1:
-                        Console.WriteLine($"Time in seconds:{t.TimeSinceMidnight(t)} ");
+                        Console.WriteLine($"Time in seconds:{t.TimeSinceMidnight()} ");
                         break;
                     case 2:
                         Console.Write("Enter number of seconds: ");
@@ -183,18 +183,18 @@ namespace labaa2task2
                         Console.WriteLine($"TimeSinceMidnight:{TimeSinceMidnight(s)}");
                         break;
                     case 3:
-                        Console.WriteLine($"Time after adding one second:{t.AddOneSecond(t)}");
+                        Console.WriteLine($"Time after adding one second:{t.AddOneSecond()}");
                         break;
                     case 4:
-                        Console.WriteLine($"Time after adding one minute:{t.AddOneMinute(t)}");
+                        Console.WriteLine($"Time after adding one minute:{t.AddOneMinute()}");
                         break;
                     case 5:
-                        Console.WriteLine($"Time after adding one hour:{t.AddOneHour(t)}");
+                        Console.WriteLine($"Time after adding one hour:{t.AddOneHour()}");
                         break;
                     case 6:
                         Console.Write("Enter number of seconds: ");
                         int seconds = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine($"Time after adding {seconds} seconds:{t.AddSeconds(t, seconds)} ");
+                        Console.WriteLine($"Time after adding {seconds} seconds:{t.AddSeconds(seconds)} ");
                         break;
                     case 7:
                         Console.Write("Enter second time (numbers separate by spaces): ");
@@ -215,7 +215,7 @@ namespace labaa2task2
                             throw new ArgumentException("Second should be between 0 and 59");
                         }
                         MyTime t2 = new MyTime(hour2, minute2, second2);
-                        Console.WriteLine($"Time difference:{t.Difference(t, t2)} second");
+                        Console.WriteLine($"Time difference:{t.Difference(t,t2)} second");
                         break;
                     case 8:
                         Console.WriteLine($"Lesson:{t.WhatLesson()}");
