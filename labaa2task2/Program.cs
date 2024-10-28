@@ -204,7 +204,7 @@ namespace labaa2task2
                         Console.WriteLine($"Time difference:{t.Difference(t, t2)} second");
                         break;
                     case 8:
-                        Console.WriteLine($"Lesson:{t.WhatLesson()}");
+                        Console.WriteLine(t.WhatLesson());
                         break;
                     default:
                         Console.WriteLine("Invalid option. Please select again.");
